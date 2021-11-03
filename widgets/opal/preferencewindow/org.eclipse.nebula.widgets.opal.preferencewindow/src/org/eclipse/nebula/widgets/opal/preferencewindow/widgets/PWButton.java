@@ -15,6 +15,7 @@ package org.eclipse.nebula.widgets.opal.preferencewindow.widgets;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionListener;
+import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
@@ -43,6 +44,12 @@ public class PWButton extends PWWidget {
 	@Override
 	public Control build(final Composite parent) {
 		final Button button = new Button(parent, SWT.PUSH);
+
+		GridData gridData = new GridData();
+		//Adjust the height of the button to the font size and add 10 so that the button is slightly larger than the font.
+		gridData.heightHint = button.getFont().getFontData()[0].getHeight() + 10;
+		button.setLayoutData(gridData);
+
 		addControl(button);
 		if (getLabel() == null) {
 			throw new UnsupportedOperationException("You need to set a label for a button");
