@@ -55,7 +55,6 @@ public class PWSeparator extends PWWidget {
 		this.image = image;
 		setAlignment(GridData.FILL);
 		setGrabExcessSpace(true);
-		setHeight(20);
 	}
 
 	/**
@@ -67,6 +66,8 @@ public class PWSeparator extends PWWidget {
 		addControl(sep);
 		sep.setText(getLabel());
 		sep.setImage(image);
+		// Adjust the height of the separator to the font size and add 10 so that the widget is slightly bigger than the font.
+		setHeight(sep.getFont().getFontData()[0].getHeight() + 10);
 		return sep;
 	}
 
